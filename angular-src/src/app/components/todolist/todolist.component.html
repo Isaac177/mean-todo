@@ -1,0 +1,37 @@
+<div class="jumbotron" style="padding:45px 0px">
+  <h4 class="text-center">To Do List App</h4>
+</div>
+
+
+
+<div class="container">
+  <div class="input-group">
+
+    <input (keyup.enter)="createToDo(todo.value); todo.value = null;" type="text" class="form-control"
+           placeholder="enter your amazing tasks you want to do" #todo><div class="input-group-addon hover-cursor" (click)="createToDo(todo.value); todo.value = null;">
+    <span class="input-group-text">Create</span>
+  </div>
+  </div>
+  <br>
+
+  <div class="card text-white bg-primary mb-3" *ngFor="let item of ToDoList">
+    <div class="card-body">
+      <div class="container">
+        <div class="row">
+          <div class="hover-cursor col-2 " [class.text-success]="item.checked"
+               (click)="checkOrUncheckToDo(item._id, !item.checked)">
+            <span class="fa fa-lg" [ngClass]="item.checked?'fa-check-circle-o':'fa-circle-thin'">Done</span>
+          </div>
+
+          <div class="col-8">
+            {{item.content}}
+          </div>
+
+          <div class="hover-cursor text-danger col-2" (click)="deleteToDo(item._id)">
+            <span class="fa fa-trash-o fa-lg">Delete</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
