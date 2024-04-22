@@ -9,17 +9,14 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-      - name: Install flyctl
+      - name: Install Fly.io CLI
         run: |
           curl -L https://fly.io/install.sh | sh
-          echo "flyctl was installed successfully"
-          echo "$PATH"
-          flyctl version
+          echo "$HOME/.fly/bin" >> $GITHUB_PATH
 
-      - name: Deploy to Fly.io
-        run: flyctl deploy
+      - name: Set Fly.io API Token
+        run: echo "FLY_API_TOKEN=${{ secrets.FLY_API_TOKEN }}" >> .env
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
