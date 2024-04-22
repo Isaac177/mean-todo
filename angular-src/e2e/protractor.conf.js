@@ -18,5 +18,6 @@ exports.config = {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.e2e.json')
     });
+    browser.ignoreSynchronization = true;
   }
 };

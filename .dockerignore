@@ -1,0 +1,62 @@
+# Node modules and coverage directories
+node_modules/
+coverage/
+.nyc_output/
+
+# IDE directories
+.idea/
+.vs/
+
+# Build and output directories
+build/Release/
+dist/
+.next/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+.dynamodb/
+
+# Dependency directories
+bower_components/
+jspm_packages/
+typings/
+
+# Cache directories
+.cache/
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Logs and runtime data
+logs/
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Test files and TypeScript cache
+*.tsbuildinfo
+*.tgz
+.yarn-integrity
+.env
+.env.test
+
+# Miscellaneous
+*.lock-wscript
+.grunt/
+.lock
+.tern-port
+
+# Diagnostic reports
+report.*.*.*.*.json
+
+# Configuration files and scripts
+.dockerignore
+Dockerfile
+
+*.js
+
+# Custom patterns specific to your needs
+# Add any other patterns that match files or directories to be ignored
