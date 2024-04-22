@@ -3,25 +3,16 @@ name: Deploy to Fly.io
 on:
   push:
     branches:
-      - main
+      - main  # or any other branch you want to deploy from
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Install Fly.io CLI
-        run: |
-          curl -L https://fly.io/install.sh | sh
-          echo "$HOME/.fly/bin" >> $GITHUB_PATH
-
-      - name: Set Fly.io API Token
-        run: echo "FLY_API_TOKEN=${{ secrets.FLY_API_TOKEN }}" >> $GITHUB_ENV
-
-      - name: Deploy Application
+      - name: Deploy to Fly.io
         run: flyctl deploy
-        working-directory: .
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
